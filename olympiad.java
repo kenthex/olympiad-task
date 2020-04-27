@@ -90,7 +90,7 @@ public class kosaraju {
 					for(int k = 0; k < SCC.get(i + 1).size(); k++) {
 						int start = SCC.get(i).get(j);
 						int finish = SCC.get(i + 1).get(k);
-						System.out.println("Проверяем: " + start + " -> " + finish);
+						System.out.println("ГЏГ°Г®ГўГҐГ°ГїГҐГ¬: " + start + " -> " + finish);
 						
 						List<Integer> depots = new ArrayList<>();
 						depots.clear();
@@ -100,21 +100,21 @@ public class kosaraju {
 						DFS_depots(graph, start, finish, visited, depots);
 						
 						if(!depots.isEmpty()) {
-							System.out.println("Результат: да, значит депо будет: " + finish);
+							System.out.println("ГђГҐГ§ГіГ«ГјГІГ ГІ: Г¤Г , Г§Г­Г Г·ГЁГІ Г¤ГҐГЇГ® ГЎГіГ¤ГҐГІ: " + finish);
 							depotsList.add(finish);
 							i++;
 							depots.clear();
 						} else {
 							visited = new boolean[V];
-							System.out.println("Результат: нет, проверяем обратное");
-							System.out.println("Проверяем: " + finish + " -> " + start);
+							System.out.println("ГђГҐГ§ГіГ«ГјГІГ ГІ: Г­ГҐГІ, ГЇГ°Г®ГўГҐГ°ГїГҐГ¬ Г®ГЎГ°Г ГІГ­Г®ГҐ");
+							System.out.println("ГЏГ°Г®ГўГҐГ°ГїГҐГ¬: " + finish + " -> " + start);
 							DFS_depots(graph, finish, start, visited, depots);
 							if(!depots.isEmpty()) {
-								System.out.println("Результат: да");
+								System.out.println("ГђГҐГ§ГіГ«ГјГІГ ГІ: Г¤Г ");
 								System.out.println(depots.get(0));
 								depots.clear();
 							} else {
-								System.out.println("Результат: нет, значит депо будет: " + finish);
+								System.out.println("ГђГҐГ§ГіГ«ГјГІГ ГІ: Г­ГҐГІ, Г§Г­Г Г·ГЁГІ Г¤ГҐГЇГ® ГЎГіГ¤ГҐГІ: " + finish);
 								depotsList.add(finish);
 								depots.clear();
 							}
@@ -126,22 +126,21 @@ public class kosaraju {
 		}
 		
 		visited = new boolean[V];
-		System.out.println("\n- Проверка между полученными депо: " + depotsList);
+		System.out.println("\n- ГЏГ°Г®ГўГҐГ°ГЄГ  Г¬ГҐГ¦Г¤Гі ГЇГ®Г«ГіГ·ГҐГ­Г­Г»Г¬ГЁ Г¤ГҐГЇГ®: " + depotsList);
 		List<Integer> finalRecieve = new ArrayList<Integer>();
 		for(int i = 0; i < depotsList.size() - 1; i++) {
 			DFS_depots(graph, depotsList.get(i), depotsList.get(i + 1), visited, finalRecieve);
 			if(finalRecieve.isEmpty()) {
-				System.out.println("Связи " + depotsList.get(i) + " -> " + depotsList.get(i + 1) + " нет, оставляем как есть.");
+				System.out.println("Г‘ГўГїГ§ГЁ " + depotsList.get(i) + " -> " + depotsList.get(i + 1) + " Г­ГҐГІ, Г®Г±ГІГ ГўГ«ГїГҐГ¬ ГЄГ ГЄ ГҐГ±ГІГј.");
 				DFS_depots(graph, depotsList.get(i + 1), depotsList.get(i), visited, finalRecieve);
 			} else {
-				System.out.println("Связь " + depotsList.get(i) + " -> " + depotsList.get(i + 1) + " есть, удаляем " + depotsList.get(i));
+				System.out.println("Г‘ГўГїГ§Гј " + depotsList.get(i) + " -> " + depotsList.get(i + 1) + " ГҐГ±ГІГј, ГіГ¤Г Г«ГїГҐГ¬ " + depotsList.get(i));
 				depotsList.remove(i);
 			}
 		}
 		
-		
-		System.out.println("Итоговые депо: " + depotsList);
-		System.out.println("Кол-во депо: " + depotsList.size());
+		System.out.println("Г€ГІГ®ГЈГ®ГўГ»ГҐ Г¤ГҐГЇГ®: " + depotsList);
+		System.out.println("ГЉГ®Г«-ГўГ® Г¤ГҐГЇГ®: " + depotsList.size());
 		
 		return SCC;
 	}
@@ -150,60 +149,28 @@ public class kosaraju {
 		Scanner scan = new Scanner(System.in);
 		kosaraju k = new kosaraju();
 
-		System.out.println("Введите кол-во вершин:");
+		System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«-ГўГ® ГўГҐГ°ГёГЁГ­:");
 		int V = scan.nextInt();
 		List<Integer>[] g = new List[V];
 		for (int i = 0; i < V; i++)
 			g[i] = new ArrayList<Integer>();
 
-		System.out.println("Введите кол-во рёбер:");
+		System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«-ГўГ® Г°ВёГЎГҐГ°:");
 		int E = scan.nextInt();
-		System.out.println("Укажите " + E + " связей(-и) между вершинами (V1, V2)");
+		System.out.println("Г“ГЄГ Г¦ГЁГІГҐ " + E + " Г±ГўГїГ§ГҐГ©(-ГЁ) Г¬ГҐГ¦Г¤Гі ГўГҐГ°ГёГЁГ­Г Г¬ГЁ (V1, V2)");
 		for (int i = 0; i < E; i++) {
 			int x = scan.nextInt();
 			int y = scan.nextInt();
 			g[x - 1].add(y - 1);
 		}
 
-
 		List<List<Integer>> scComponents = k.getSCComponents(g);
 		
-		
-		 for(int i = 0; i < scComponents.size(); i++) {
-		 Collections.sort(scComponents.get(i)); }
-		 System.out.println("\n- Компоненты сильной связи: " + scComponents);
+		for(int i = 0; i < scComponents.size(); i++) {
+		Collections.sort(scComponents.get(i)); }
+		System.out.println("\n- ГЉГ®Г¬ГЇГ®Г­ГҐГ­ГІГ» Г±ГЁГ«ГјГ­Г®Г© Г±ГўГїГ§ГЁ: " + scComponents);
 		
 		List<List<Integer>> depot = k.findDepots(g, scComponents);
-		
-/*
-1 5 
-1 4 
-1 2 
-2 3 
-3 1 
-4 6 
-6 4
-*/
 
-		
-/*
-1 2 
-2 3 
-3 4 
-4 3 
-4 8 
-8 4 
-8 7
-7 6
-6 7
-3 7
-5 1
-5 6
-2 5
-*/		
-		
-		
-		
 	}
-
 }
