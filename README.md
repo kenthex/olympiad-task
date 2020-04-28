@@ -6,7 +6,7 @@
 **Short description of the task solution.**
 First we need to find SCC (Strongly Connected Components), in the program it was implemented by Kosaraju algorithm. After that, we need to check connections between SCC: if we can reach a vertex located in one SCC from vertex located in another SCC, we add the vertex we reached in preliminary list of depot. In case we can't reach both of vertices, we add both vertices in preliminary list of depot. And the last action is to check reachability between vertices in preliminary list of depot. If we can reach from one to another, we delete the vertex from which we left, and the final list will be list of depot.
 
-**Working input data examples:** <br/> <br/>
+**Working input data examples:** <br/>
 **Example 1.** <br/>
 Number of vertices (crossroads): 6 <br/>
  Number of edges (roads): 7 <br/>
@@ -48,7 +48,7 @@ __________
 **Краткое описание решения задачи:**
 Для начала нам нужно найти КСС (Компоненты Сильной Связи), в программе это реализовано через алгоритм Косараджу. После этого нам нужно проверить связи между КСС: если мы можем достичь вершину, расположенную в одной КСС из вершины, расположенной в другой КСС, мы добавляем достигнутую вершину в предварительный список депо. Если мы не можем достичь обеих вершин друг из друга, мы добавляем обе вершины в предварительный список депо. И последнее действие - проверить достижимость между вершинами в предварительном списке депо. Если мы можем достичь одну вершину из другой, мы удаляем вершину из которой мы вышли. Окончательный список будет списком депо.
 
- **Рабочие примеры входных данных:** <br/> <br/>
+ **Рабочие примеры входных данных:** <br/>
  **Пример 1.** <br/>
  Количество вершин (перекрестков): 6 <br/>
  Количество ребер (дорог): 7 <br/>
