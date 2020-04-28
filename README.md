@@ -17,7 +17,7 @@ Number of vertices (crossroads): 6 <br/>
  2 3 <br/>
  3 1 <br/>
  4 6 <br/>
- 6 4 <br/> <br/>
+ 6 4 <br/>
 
  **Example 2.** <br/>
  Number of vertices (crossroads): 8 <br/>
@@ -59,7 +59,7 @@ __________
  2 3 <br/>
  3 1 <br/>
  4 6 <br/>
- 6 4 <br/> <br/>
+ 6 4 <br/>
 
 **Пример 2.** <br/> 
 Количество вершин (перекрестков): 8 <br/>
